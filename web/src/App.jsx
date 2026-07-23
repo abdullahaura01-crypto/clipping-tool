@@ -31,8 +31,9 @@ function ModelSplash({ status }) {
   const failed = status.status === "error";
   return (
     <div className="model-splash">
-      <div className="model-splash-mark"><Icons.bolt /></div>
-      <div className="model-splash-title">ClipForge</div>
+      <div className="model-splash-mark" style={{background: 'none', border: 'none', width: 'auto'}}>
+        <img src="/static/logo.png" alt="AURA Clipper" style={{height: '64px', objectFit: 'contain'}} />
+      </div>
       {failed ? (
         <>
           <div className="model-splash-msg" style={{ color: "var(--danger)" }}>Could not start the AI engine.</div>
@@ -139,9 +140,8 @@ export default function App() {
       <div className="nav-scrim" onClick={() => setNavOpen(false)} aria-hidden="true" />
 
       <aside className="sidebar">
-        <div className="brand">
-          <span className="logo"><Icons.bolt /></span>
-          ClipForge
+        <div className="brand" style={{gap: '8px', padding: '16px'}}>
+          <img src="/static/logo.png" alt="AURA Clipper" style={{height: '40px', objectFit: 'contain'}} />
         </div>
         <nav className="nav">
           {NAV.map((n) => (

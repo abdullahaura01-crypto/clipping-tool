@@ -331,17 +331,20 @@ def _run_pipeline(job: Job) -> None:
             )
 
             clip_words = [w for w in words if w["end"] > start and w["start"] < end]
-            ass_path = clip_dir / f"{index}.ass"
-            captions.build_ass(
-                words=clip_words,
-                style_preset=req.caption_style,
-                video_w=width,
-                video_h=height,
-                out_path=ass_path,
-                clip_start=start,
-                overrides=caption_overrides,
-                fit_mode=req.fit_mode.value,
-            )
+            if req.caption_style == "none":
+                ass_path = None
+            else:
+                ass_path = clip_dir / f"{index}.ass"
+                captions.build_ass(
+                    words=clip_words,
+                    style_preset=req.caption_style,
+                    video_w=width,
+                    video_h=height,
+                    out_path=ass_path,
+                    clip_start=start,
+                    overrides=caption_overrides,
+                    fit_mode=req.fit_mode.value,
+                )
 
             opts = ClipOptions(
                 aspect_ratio=req.aspect_ratio,

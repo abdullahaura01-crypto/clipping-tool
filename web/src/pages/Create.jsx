@@ -295,13 +295,12 @@ export default function Create({ step, setStep }) {
     <>
       <div className="landing">
         <div className="brand-hero">
-          <span className="brand-mark"><Icons.bolt /></span>
-          <span className="brand-word">ClipForge</span>
+          <img src="/static/logo.png" alt="AURA Clipper" style={{height: '96px', objectFit: 'contain'}} />
         </div>
         <span className="eyebrow"><span className="eyebrow-dot" />100% local pipeline · no API keys</span>
         <h1 className="landing-title">Turn any video into <span className="grad">captioned shorts</span></h1>
         <p className="landing-sub">
-          Paste a link or drop a file — ClipForge finds the best moments, reframes them
+          Paste a link or drop a file — AURA Clipper finds the best moments, reframes them
           vertical, and burns on styled captions, right on your own machine.
         </p>
 

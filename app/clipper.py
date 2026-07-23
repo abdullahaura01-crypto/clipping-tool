@@ -102,7 +102,7 @@ class ClipOptions:
 
     aspect_ratio: AspectRatio
     fit_mode: FitMode
-    ass_path: Path
+    ass_path: Optional[Path]
     clip_id: str
     index: int
     square_corners: str = "round"      # "round" | "square" — square fit mode only
@@ -151,6 +151,8 @@ def _ass_filter(opts: ClipOptions, work_dir: Path) -> str:
 
 def _caption_stage(in_label: str, opts: ClipOptions, work_dir: Path) -> str:
     """The final stage that burns the captions onto ``in_label`` -> ``[outv]``."""
+    if not opts.ass_path:
+        return f"[{in_label}]copy[outv]"
     return f"[{in_label}]{_ass_filter(opts, work_dir)}[outv]"
 
 

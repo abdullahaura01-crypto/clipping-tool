@@ -60,6 +60,9 @@ def _P(label: str, **kw) -> dict:
 
 
 STYLE_PRESETS: dict[str, dict] = {
+    # --- Disable ---
+    "none": _P("None", animation="none", max_lines=0, font_size=0, outline=0, shadow=0),
+
     # --- Originals ---
     "bold_white": _P("Bold White", highlight_color="#FFFFFF", font_size=96, max_chars=20),
     "karaoke_yellow": _P("Karaoke Yellow", karaoke=True, font_size=92, highlight_color="#FFE600"),

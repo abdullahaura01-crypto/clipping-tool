@@ -81,6 +81,8 @@ app.mount("/clips", StaticFiles(directory=str(CLIPS_DIR)), name="clips")
 app.mount("/fonts", StaticFiles(directory=str(FONTS_DIR)), name="fonts")
 # Serve the music library so the UI can preview tracks with an <audio> element.
 app.mount("/music", StaticFiles(directory=str(MUSIC_DIR)), name="music")
+# Serve the static directory for images like logo.png
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 # Serve the built React dashboard's hashed JS/CSS bundles (web/dist/assets) when a
 # production build exists, so the backend can serve the React app at "/" directly.
 if (WEB_DIST_DIR / "assets").is_dir():
